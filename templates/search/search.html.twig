@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Food Standard Agency{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>UK Food Standard Agency ✅</h1>
+        <form method="GET" id="search_establishments">
+            <label>Authority:</label>
+            <select name="authority" id="authority">
+                <option value="-1">-Select-</option>
+                <option value="415">Manchester</option>
+            </select>
+            &nbsp;&nbsp;
+            <label>Postcode:</label>
+            <input type="text" id="postcode" name="postcode"><br>
+            <br>
+            <input type="button" id="search" value="Search">
+            <input type="button" id="clear" value="Clear">
+        </form>
+        <div class="sortby" style="text-align: right; display: none;">
+            <label>Sort By:</label>
+            <select name="sort" id="sort" onchange="sortBy()">
+                <option value="rating">Rating</option>
+                <option value="name">Name</option>
+                </select>
+            </div>
+        <div id="search_result"></div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/search.js') }}"></script>
+{% endblock %}
